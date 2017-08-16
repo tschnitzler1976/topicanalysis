@@ -1,0 +1,21 @@
+                                   num.iterations = G, alpha = alpha, 
+                                   eta = eta, initial = NULL, burnin = 0,
+                                   compute.log.likelihood = TRUE)
+
+theta <- t(apply(fit$document_sums + alpha, 2, function(x) x/sum(x)))
+
+phi <- t(apply(t(fit$topics) + eta, 2, function(x) x/sum(x)))
+
+mreviews <- list(phi = phi,
+                     theta = theta,
+                     doc.length = doc.length,
+                     vocab = vocab,
+                     term.frequency = term.frequency)
+library(LDAvis)
+
+# create the JSON object to feed the visualization:
+json <- createJSON(phi = mreviews$phi, 
+                   theta = mreviews$theta, 
+                   doc.length = mreviews$doc.length, 
+                   vocab = mreviews$vocab, 
+                   term.frequency = mreviews$term.frequency)
