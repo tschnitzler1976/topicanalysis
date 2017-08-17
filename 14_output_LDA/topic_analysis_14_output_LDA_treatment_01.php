@@ -77,6 +77,32 @@
 			$outputtouser=$outputtouser . '<tr><td>' . $consideredconferenceoutput . '.</td><td></td></tr>';
 			$outputtouser=$outputtouser . '<tr><td>' . $yearfromtoselectedoutput . '.</td><td></td></tr>';
 			$outputtouser=$outputtouser . 'LDA-output with the help of <a href="http://kennyshirley.com/LDAvis/#topic=10&lambda=1&term=">LDAvis</a> as follows:</td><td></td></tr>';
+			
+			//Show the details of any scientific article that affected the displayed LDAvis-Output above
+			$inputdir=$inputexecuteoutputdir . 'input/';
+			$handle=opendir($inputdir);
+			$outputtouser2='<tr><td>The LDAvis-output from above was affected by the following scientific articles:</td><td>&nbsp;</td></tr>';
+			$outputtouser2=$outputtouser2 . '<tr><td>&nbsp;</td><td>&nbsp;</td></tr>';
+			while ($file = readdir ($handle)) {
+				if (( $file != '.' ) && ( $file != '..' )) {
+					$filenamearray=explode(".",$file);
+					$id=$filenamearray[0];
+					if(is_numeric($id)){
+						$returndbselect=dbselect($returndbconnect,"search_results","id='$id'", "id");			
+						$returndbfetcharray=dbfetcharray($returndbselect);
+						$title=dbfetchfield($returndbfetcharray,'title');
+						$authors=dbfetchfield($returndbfetcharray,'authors');
+						$conference=dbfetchfield($returndbfetcharray,'conference');
+						$year=dbfetchfield($returndbfetcharray,'year');
+						$outputtouser2=$outputtouser2 . '<tr><td>Title: ' . $title . '</td><td>&nbsp;</td></tr>
+						<tr><td>Author(s): ' . $authors . '</td><td>&nbsp;</td></tr>
+						<tr><td>Conference: ' . $conference . '</td><td>&nbsp;</td></tr>
+						<tr><td>Year: ' . $year . '</td><td>&nbsp;</td></tr>';
+						$outputtouser2=$outputtouser2 . '<tr><td>&nbsp;</td><td>&nbsp;</td></tr>';					
+					}
+				}
+			}
+
 			echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 				<html xmlns="http://www.w3.org/1999/xhtml">
 				
@@ -87,12 +113,14 @@
 				<body>
 				
 				<table>' . $outputtouser . '</table>
-				
-				
+				<table><tr><td>
 				<iframe name="vis" src="' . $httpoutputdir . 'vis/index.html" style="width: 1266px; height: 792px;">Your 
 				browser does not support inline-frames or you have to change the configuration settings 
-				of your browser. 			</iframe>
+				of your browser. 			</iframe></td><td>&nbsp;</td></tr></table>
+				<table>' . $outputtouser2 . '</table>
 				</body>
+				
+				
 				</html>';	
 			}else{
 				echo 'No output generated for lda ' . $ldaname . ' before. Please go back to the <a href="../topic_analysis_00_menu.php">menu</a>.</br>';
