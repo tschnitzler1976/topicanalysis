@@ -25,7 +25,7 @@ term.table <- term.table[!del]
 vocab <- names(term.table)
 
 # now put the documents into the format required by the lda package:
-get.terms <- function(x) {
+  get.terms <- function(x) {
   index <- match(x, vocab)
   index <- index[!is.na(index)]
   rbind(as.integer(index - 1), as.integer(rep(1, length(index))))
@@ -63,6 +63,7 @@ mreviews <- list(phi = phi,
                      doc.length = doc.length,
                      vocab = vocab,
                      term.frequency = term.frequency)
+
 library(LDAvis)
 
 # create the JSON object to feed the visualization:

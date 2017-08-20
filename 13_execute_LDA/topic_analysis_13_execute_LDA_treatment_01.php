@@ -344,10 +344,21 @@
 													}
 													if($striposition1numyesno){
 														$outputtouser=$outputtouser . '<tr><td>' . $zaehler3 . ') Abstract "' . $title[$zaehler] .'" from author(s) "' . $authors[$zaehler] . '" from conference "' . $conference[$zaehler] .'" from year "' . $year[$zaehler] .'" not copied to "' . pathtolda() . $topicanalysisname . '/' . $ldaname . '/input/" because this scientific article is without an abstract.</td><td></td></tr>';   
+														$returndbdelete=dbdelete($returndbconnect,"lda_id_search_results","id_lda='$idlda' AND id_search_result='$idsearchresult[$zaehler]'");
+														if($returndbdelete==0){
+															echo "DELETE-Query for deleting a row in table lda_id_search_results because of a missing abstract went wrong";
+															$returndeletesearchstrings=0;
+														}
+
 													}
 													
 													if($striposition2numyesno){
 														$outputtouser=$outputtouser . '<tr><td>' . $zaehler3 . ') Abstract "' . $title[$zaehler] .'" from author(s) "' . $authors[$zaehler] . '" from conference "' . $conference[$zaehler] .'" from year "' . $year[$zaehler] .'" not copied to "' . pathtolda() . $topicanalysisname . '/' . $ldaname . '/input/" because this scientific article is without an abstract.</td><td></td></tr>';   
+														$returndbdelete=dbdelete($returndbconnect,"lda_id_search_results","id_lda='$idlda' AND id_search_result='$idsearchresult[$zaehler]'");
+														if($returndbdelete==0){
+															echo "DELETE-Query for deleting a row in table lda_id_search_results because of a missing abstract went wrong";
+															$returndeletesearchstrings=0;
+														}
 													}
 												}
 											}

@@ -43,7 +43,7 @@
 					$dbnumrowsvar2=dbnumrows($returndbselect);
 					if($dbnumrowsvar2>0){
 						while(list($id,$id_search_strings,$exclude,$authors_row,$title_row,$conference_row,$year_row,$first_link_to_abstracttext,$abstracttext,$abstracttext_for_lda,$first_link_to_pdffulltext,$path_to_pdffulltext,$pdffulltext_as_text,$pdffulltext_as_text_extracted_row) = mysqli_fetch_row($returndbselect)){							
-							/*We fetch the id in order to address the pdffulltext_as_text_extracted where abstracttext will be moved to column abstracttext and pdffulltext_as_text_extracted to the column pdffulltext_for_lda*/
+							/*We fetch the id in order to address the pdffulltext_as_text_extracted to move pdffulltext_as_text_extracted to the column pdffulltext_for_lda*/
 							$id_search_result=$id;
 							$pdffulltextastextextracted=base64_decode($pdffulltext_as_text_extracted_row);
 							$pdffulltextastextextractedarray=str_split($pdffulltextastextextracted);

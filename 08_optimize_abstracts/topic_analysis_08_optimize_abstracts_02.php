@@ -33,7 +33,7 @@
 		for($zaehler2=0;$zaehler2<$zaehler;$zaehler2++){
 			$returndbselect=dbselect($returndbconnect,"search_results", "id_search_strings='$searchstringsids[$zaehler2]' AND abstracttext<>'' AND preprocessing_abstracttext_already_done=1 AND exclude=0","id");			
 			while(list($id) = mysqli_fetch_row($returndbselect)){							
-				/*We fetch the id in order to address the pdffulltext_as_text_extracted that manually has to be updated by the user.*/
+				/*We fetch the id in order to address the abstracttext that manually has to be updated by the user.*/
 				$id_search_result=$id;
 				//The id_search_result from above is OK. Thus we can get our textarea field.
 				$textareafield='textarea_abstracttext_id_' . $id_search_result;

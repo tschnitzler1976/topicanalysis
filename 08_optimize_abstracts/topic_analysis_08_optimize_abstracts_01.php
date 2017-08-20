@@ -51,7 +51,7 @@
 						$dbnumrowsvar2=dbnumrows($returndbselect);
 						if($dbnumrowsvar2>0){
 							while(list($id,$id_search_strings,$exclude,$authors_row,$title_row,$conference_row,$year_row,$first_link_to_abstracttext,$abstracttext_row,$abstracttext_for_lda_row) = mysqli_fetch_row($returndbselect)){							
-								/*We fetch the id in order to address the pdffulltext_as_text_extracted that manually has to be updated by the user.*/
+								/*We fetch the id in order to address the abstracttext that manually has to be updated by the user.*/
 								$id_search_result=$id;
 								$authors=$authors_row;
 								$title=$title_row;
