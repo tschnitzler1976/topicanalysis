@@ -128,17 +128,17 @@
 				<td>&nbsp;</td>
 			</tr>
 			<tr>
-				<td style="width: 481px">Please supply your research questions 
-				for at most one software language&nbsp; </td>
+				<td style="width: 481px">Please provide research questions for 
+				"' . $topicanalysisname . '" in the text field </td>
 				<td><input name="hiddentextresearchid" type="hidden" value="' . $txtresearchquestionsid .'"/></td>
 			</tr>
 			<tr>
-				<td style="width: 481px">engineering. In order to be able to 
-				split each research question from each other</td>
+				<td style="width: 481px">below. In order to divide research questions from each other 
+				please finalize</td>
 				<td>&nbsp;</td>
 			</tr>
 			<tr>
-				<td style="height: 23px; width: 481px">please finalize each research 
+				<td style="height: 23px; width: 481px">&nbsp;each research 
 					question with a question mark (question mark=?).</td>
 				<td style="height: 23px"></td>
 			</tr>
@@ -156,18 +156,31 @@
 				&nbsp;</td><td>&nbsp;</td>
 			</tr>
 			<tr>
-				<td style="width: 481px; height: 23px;"width: 509px">
-				Please supply the search strings that each should be an URL in 
-				order to fetch&nbsp; </td><td style="height: 23px"></td>
+				<td style="width: 481px; height: 9px;"width: 509px">
+				If you have a handler for a web search engine please provide the 
+				search strings </td><td style="height: 9px"></td>
 			</tr>
 			<tr>
 				<td style="width: 481px; height: 23px;"width: 509px">
-					information from a search engine to answer the above 
-					provided research questions</td><td style="height: 23px"></td>
+				as URLs in the text field below for the web search engine.</td><td style="height: 23px">
+				&nbsp;</td>
 			</tr>
 			<tr>
-				<td style="width: 481px">The search execution will be in the order you list them in 
-					this textfield.</td>
+				<td style="width: 481px; height: 23px;"width: 509px">
+					Search results from each URL should be contributrions for answering 
+					the above</td><td style="height: 23px"></td>
+			</tr>
+			<tr>
+				<td style="width: 481px; height: 23px;"width: 509px">
+					provided research questions</td><td style="height: 23px">&nbsp;</td>
+			</tr>
+			<tr>
+				<td style="width: 481px; height: 9px;">The search strings will 
+				be executed in the order you list them in the text field</td>
+				<td style="height: 9px"></td>
+			</tr>
+			<tr>
+				<td style="width: 481px">below.</td>
 				<td>&nbsp;</td>
 			</tr>
 			<tr>
@@ -200,33 +213,20 @@
 						
 										<tr>
 					<td style="width: 481px; height: 156px;"width: 509px">
-					Please provide the fields of the scientific article you 
-					would like to update. Either you provide 0$ in a row if you 
-					do not want to update a field or you provide the search 
-					engine handler for the conversion of the search engine\'s 
-					provided data to the data of this local database. <br>At the<br>
-					Please write 0$ or the www-address for the following 
-					attributes one per row.<br>0$ or "identifier for the search engine\'s 
-					handler"&nbsp; for 
-					"author".<br>0$ or "identifier for the search engine\'s 
-					handler" for "title".<br>0$ or 
-					"identifier for the search engine\'s handler" for "conference".<br>0$ or 
-					"identifier for the search engine\'s handler" for 
-					"year".<br>0$ or "identifier for the search engine\'s 
-					handler" for 
-					"first_link_to_abstracttext".<br>0$ or "identifier for the search engine\'s 
-					handler" for 
-					"abstracttext".<br>0$ or "identifier for the search engine\'s 
-					handler" for 
-					"first_link_to_pdffulltext".<br>0$ or "identifier for the search engine\'s 
-					handler" for 
-					"path_to_pdffulltext".<br>0$ or "identifier for the search engine\'s 
-					handler" for 
-					"pdffulltext_as_text".<br>0$ or "identifier for the search engine\'s 
-					handler" for 
-					"pdffulltext_as_text_extracted".<br><br>As of September 30, 
-					2017 the following handler for the following search engines 
-					are already implemented:<br>
+					The textfield below is for filling the fields of the search 
+					results which have the attributes "author", "title", "conference", "year", 
+					"first_link_to_abstracttext", "abstracttext", 
+					"first_link_to_pdffulltext", 
+					"path_to_pdffulltext", "pdffulltext_as_text" and 
+					"pdffulltext_as_text".<br>If you have a handler to search 
+					and save data for any of the above listed attributes then 
+					write this handler\'s identifier in the i-th row where the 
+					i-th column is an attribute above. If you do not have a 
+					handler for an attribute please write 0$ instead. Any row 
+					must be finished by a Dollarsymbol "$" otherwise the 
+					parameter for a row will not be saved.<br>As of September 30, 
+					2017 the following handler for the following attributes 
+					exist:<br>
 					<a href="http://www.researchgate.net">www.researchgate.net</a>$ 
 					for "first_link_to_abstracttext",<br>
 					<a href="http://www.researchgate.net">www.researchgate.net</a>$ 
@@ -238,11 +238,6 @@
 											<td style="height: 156px"></td>
 				</tr>
 						
-				<tr>
-					<td style="width: 481px; height: 23px;"width: 509px">
-					Please remember to write the Dollarsymbol after each search 
-					string as it is presented above. Thank you!</td><td style="height: 23px">&nbsp;</td>
-				</tr>
 				<tr>
 					<td style="width: 481px"><input name="hiddentextsearchstringsid2" type="hidden" value="' . $txtsearchstringsid2 .'"/></td>
 					<td>&nbsp;</td>
