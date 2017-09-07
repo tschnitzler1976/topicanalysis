@@ -10,14 +10,11 @@
 	include_once("mysql_db_queries.php");
 	include_once("mysql_db_functions.php");
 	include_once("php_functions.php");
-	include_once("php_functions_04_create_and_complete_treatment_01_dblp_xml_publications.php");
+	include_once("php_functions_04_fill_and_complete_treatment_01_dblp_xml_publications.php");
 	
 	
 	if(isset($_POST["select_existing_topic_analysis"])){
 		$topicanalysisid=htmlstringtostring($_POST["select_existing_topic_analysis"]);
-		
-		//with the help of $returnvalueshfsrfd[0], $returnvalueshfsrfd[1] and $returnvalueshfsrfd[2] it can be decided whether the output for exclusion will be shown or not
-		$returnvalueshfsrfd[0]=true;		
 		
 		$returndbconnect=dbconnect();
 	
@@ -45,15 +42,15 @@
 			  in https://userpages.uni-koblenz.de/~laemmel/esecourse/slides/sms.pdf between slide 12 and slide 16
 			  must be a control functionality for the search (second step in the systematic mapping study)
 			  (see slide 18 at https://userpages.uni-koblenz.de/~laemmel/esecourse/slides/sms.pdf). Switch to the right
-			   search engine's treatment procedure later in line of topic_analysis_04_create_and_complete_treatment_01.php
+			   search engine's treatment procedure later in line of topic_analysis_04_fill_and_complete_treatment_01.php
 			   (search results for search strings from the second textarea field in the html-modify-form).
-			   and in line of topic_analysis_04_create_and_complete_treatment_02.php (search results for search strings
+			   and in line of topic_analysis_04_fill_and_complete_treatment_02.php (search results for search strings
 			   from the third textarea field in the html-modify-form).*/
 			   
 			$txtsearchstringsid="";
 			if($returndbnumrows3>0){
 				/*Fetch the search strings for the search results that will be completed with the help of
-				topic_analysis_04_create_and_complete_treatment_02.php.
+				topic_analysis_04_fill_and_complete_treatment_02.php.
 				Because it is $returndbnumrows3>0 there are also search strings that are already saved for this topic
 				analysis. Therefore extract the search engines to an input-file for wget.*/
 				$searchstringsidsnextform="";
@@ -109,7 +106,8 @@
 							$anythingfine=1;
 						break;	
 						case 2:					
-							//another handler for search results from another search engine in terms of the second step of the systematic mapping study (search results for all p
+							//another handler for search results from another search engine to fill the fields of table search results
+							//according to the second step of the systematic mapping study 
 							//(see https://userpages.uni-koblenz.de/~laemmel/esecourse/slides/sms.pdf from slide 17 until slide 19)
 						break;
 						default:
@@ -132,7 +130,8 @@
 								if($writeok[$zaehler]==0){
 									$writeokoutput=$writeokoutput . '<tr><td style="width: 629px; height: 23px;">The dblp file for the ' . $zaehler . '. run did not exist.</td><td>&nbsp;</td></tr>';
 								}elseif($writeok[$zaehler]==1){
-									$writeokoutput=$writeokoutput . '<tr><td style="width: 629px; height: 23px;">The ' . $zaehler . '. run was successful.</td><td>&nbsp;</td></tr>';
+									$zaehlertemp=$zaehler+1;
+									$writeokoutput=$writeokoutput . '<tr><td style="width: 629px; height: 23px;">The ' . $zaehlertemp . '. run was successful.</td><td>&nbsp;</td></tr>';
 								}
 								$htmlcodeforsnapshot=createsnapshotoftablesearchresults($topicanalysisid);
 							break;	
@@ -156,7 +155,7 @@
 	</head>
 	
 	<body>
-	<form method="post" action="topic_analysis_04_create_and_complete_treatment_02.php">
+	<form method="post" action="topic_analysis_04_fill_and_complete_treatment_02.php">
 		<input name="texttopicanalysisid" type="hidden" value="' . $topicanalysisid .'"/>
 		<br />
 		<table style="width: 100%">
@@ -193,7 +192,7 @@
 							$zaehler2=$zaehler+1;		
 							$output=htmlstringtostring('<tr>
 						<td style="width: 629px; height: 23px;">
-						<a href="topic_analysis_04_create_and_complete_treatment_01_02.php?topicanalysisname=' . $topicanalysisname . ' &searchstringid=' . $searchstringsids[$zaehler] . '" target="_blank">Search result for the ' . $zaehler2 . '. search string for verification purpose.</a></td>
+						<a href="topic_analysis_04_fill_and_complete_treatment_01_02.php?topicanalysisname=' . $topicanalysisname . ' &searchstringid=' . $searchstringsids[$zaehler] . '" target="_blank">Search result for the ' . $zaehler2 . '. search string for verification purpose.</a></td>
 						<td style="height: 23px">&nbsp;</td></tr>');
 						echo $output;
 						} 
@@ -214,11 +213,10 @@
 		<table style="width: 100%">
 			<tr>
 				<td>The information in table "search_results" from the search 
-				engine because of your search strings for this topic analysis 
+				engine because of your search strings for<br>&nbsp;this topic analysis 
 				are in the table below. If anything is in your favour please 
-				complete the search results in line of your entries in the third 
-				text area of the html-form for modifying components for this 
-				topic analysis.</td>
+				complete the search<br>&nbsp;results in line of your entries in the third 
+				text area of the html-form for modifying components for this<br>&nbsp;topic analysis.</td>
 				<td>&nbsp;</td>
 			</tr>
 			<tr>

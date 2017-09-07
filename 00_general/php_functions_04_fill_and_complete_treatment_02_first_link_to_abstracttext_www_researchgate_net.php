@@ -33,7 +33,7 @@ include_once("mysql_db_functions.php");
 			$handleanyfirst_link_to_abstracttext=1;
 			$linksforcompletions=
 					'<tr>
-						<td style="width: 743px; height: 23px;"><a href="../www_researchgate_net/topic_analysis_04_create_and_complete_treatment_02_first_link_to_abstracttext_all.php?topicanalysisid=' . $topicanalysisid . '&searchresultid=0" target="_blank">Complete the search results for all first links to abstracttexts with the help of "http://www.researchgate.net".</a></td>
+						<td style="width: 743px; height: 23px;"><a href="../www_researchgate_net/topic_analysis_04_fill_and_complete_treatment_02_first_link_to_abstracttext_all.php?topicanalysisid=' . $topicanalysisid . '&searchresultid=0" target="_blank">Complete the search results for all first links to abstracttexts with the help of "http://www.researchgate.net".</a></td>
 						<td>&nbsp;</td>
 					</tr><tr>
 						<td style="width: 743px; height: 23px;">&nbsp;</td>
@@ -54,7 +54,7 @@ include_once("mysql_db_functions.php");
 					$searchresultid=dbfetchfield($dbfetcharray,"id");
 					$linksforcompletions=
 							'<tr>
-								<td style="width: 743px; height: 23px;"><a href="../www_researchgate_net/topic_analysis_04_create_and_complete_treatment_02_first_link_to_abstracttext_one.php?topicanalysisid=' . $topicanalysisid . '&searchresultid=' . $searchresultid . '" target="_blank">Complete one field for the first links to abstracttext of table "search results".</a></td>
+								<td style="width: 743px; height: 23px;"><a href="../www_researchgate_net/topic_analysis_04_fill_and_complete_treatment_02_first_link_to_abstracttext_one.php?topicanalysisid=' . $topicanalysisid . '&searchresultid=' . $searchresultid . '" target="_blank">Complete one field for the first links to abstracttext of table "search results".</a></td>
 								<td>&nbsp;</td>
 							</tr><tr>
 								<td style="width: 743px; height: 23px;">&nbsp;</td>

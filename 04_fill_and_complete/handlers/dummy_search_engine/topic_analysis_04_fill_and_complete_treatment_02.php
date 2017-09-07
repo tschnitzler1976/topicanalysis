@@ -1,6 +1,6 @@
 <?php
 /*   
-  1.    b) Complete the search results that were inserted by topic_analysis_04_create_and_complete_treatment_01.php
+  1.    b) Complete the search results that were inserted by topic_analysis_04_fill_and_complete_treatment_01.php
   		if there is an up-to-date handler for completion complete this part of search results in order to present the
      	product "search_results" for the exclusion procedure according to slide 22 in   
         https://userpages.uni-koblenz.de/~laemmel/esecourse/slides/sms.pdf.        
@@ -12,11 +12,11 @@
 	include_once("mysql_db_queries.php");
 	include_once("mysql_db_functions.php");
 	include_once("php_functions.php");
-	include_once("php_functions_04_create_and_complete_treatment_02_first_link_to_abstracttext_www_researchgate_net.php");
-	include_once("php_functions_04_create_and_complete_treatment_02_abstracttext_www_researchgate_net.php");
-	include_once("php_functions_04_create_and_complete_treatment_02_pathtopdffulltext.php");
-	include_once("php_functions_04_create_and_complete_treatment_02_pdffulltextastext.php");
-	include_once("php_functions_04_create_and_complete_treatment_02_pdffulltextastextextracted.php");
+	include_once("php_functions_04_fill_and_complete_treatment_02_first_link_to_abstracttext_www_researchgate_net.php");
+	include_once("php_functions_04_fill_and_complete_treatment_02_abstracttext_www_researchgate_net.php");
+	include_once("php_functions_04_fill_and_complete_treatment_02_pathtopdffulltext.php");
+	include_once("php_functions_04_fill_and_complete_treatment_02_pdffulltextastext.php");
+	include_once("php_functions_04_fill_and_complete_treatment_02_pdffulltextastextextracted.php");
 	
 	if(isset($_POST["texttopicanalysisid"])){
 		$topicanalysisid=htmlstringtostring($_POST["texttopicanalysisid"]);	
@@ -36,8 +36,8 @@
 		$returndbnumrows3=dbnumrows($returndbselect3);
 		
 		if($returndbnumrows1>0){	
-			/*We know from topic_analysis_04_create_and_complete_treatment_01.php that we have research questions for this
-			  topic analysis. The message from topic_analysis_04_create_and_complete_treatment_01.php for this is:
+			/*We know from topic_analysis_04_fill_and_complete_treatment_01.php that we have research questions for this
+			  topic analysis. The message from topic_analysis_04_fill_and_complete_treatment_01.php for this is:
 			  "There are research questions for this topic analysis
 			  This is necessary to proceed because the first step in the systematic mapping study
 			  in https://userpages.uni-koblenz.de/~laemmel/esecourse/slides/sms.pdf between slide 12 and slide 16
@@ -58,14 +58,14 @@
 					$zaehler11++;
 				}
 			/*Search strings are also part of this topic analysis.
-			  The message from topic_analysis_04_create_and_complete_treatment_01.php for this is:
+			  The message from topic_analysis_04_fill_and_complete_treatment_01.php for this is:
 			  "Fetch the search strings for the search results that will be completed with the help of
-			   topic_analysis_04_create_and_complete_treatment_02.php.
+			   topic_analysis_04_fill_and_complete_treatment_02.php.
 			   Because it is $returndbnumrows3>0 there are also search strings that are already saved for this topic
 			   analysis. Therefore extract the search engines to an input-file for wget. Switch to the right
-			   search engine's treatment procedure later in line of topic_analysis_04_create_and_complete_treatment_01.php
+			   search engine's treatment procedure later in line of topic_analysis_04_fill_and_complete_treatment_01.php
 			   (search results for search strings from the second textarea field in the html-modify-form).
-			   and in line of topic_analysis_04_create_and_complete_treatment_02.php (search results for search strings
+			   and in line of topic_analysis_04_fill_and_complete_treatment_02.php (search results for search strings
 			   from the third textarea field in the html-modify-form).
 			   
 				Now we have can continue as follows:
@@ -96,8 +96,7 @@
 				$returndbselect=dbselect($returndbconnect,"search_results","1","id");
 				$amountofcolumns=mysqli_num_fields($returndbselect);
 				//We do not count id-fields and the exclude-bitfield
-				$amountofmandatoryrows=$amountofcolumns-notimportantcolumnstablesearchresults();		  
-				
+				$amountofmandatoryrows=$amountofcolumns-notimportantcolumnstablesearchresults()-notimportantcolumnstablesearchresultsattheend();		  
 				$finfo = mysqli_fetch_fields($returndbselect);
 				//Output of the up-to-date columns of table "search_results" in $finfoarray 
 				$zaehler=0;
@@ -114,19 +113,20 @@
 		        	/*In order to give an up-to-date output to the user the columns of table "search_results" are read into
 					an array for output.*/
 		        	$hint="";
-					for($zaehler=3;$zaehler<$amountofcolumns;$zaehler++){
-						$whatrow=$zaehler-2;
+					for($zaehler=notimportantcolumnstablesearchresults()-1;$zaehler<$amountofinsertedrows;$zaehler++){
+						$whatrow=$zaehler-notimportantcolumnstablesearchresults()+1;
 						$hint=$hint . '</br>You have to write either the wildcard 0$ or the URL of the search engine like
 						"http://www.researchgate.net" in the
 					' . $whatrow . '. row for completing "' . $finfoarray[$zaehler] . '".';
 					}					
 				
 					echo 'The amount of rows in the third textarea field in the <a href="../../../topic_analysis_02_modify.php">html-form for modifying the components
-					of a topic analysis</a> are not the same as the amount of updateable columns in table "search_strings". The amount
-					of updateable columns in table "search_strings is ' . $amountofmandatoryrows . '.</br>If you do not have a column
+					of a topic analysis</a> are not the same as the amount of updateable columns in table "search_results". The amount
+					of updateable columns in table "search_results" is ' . $amountofmandatoryrows . '.</br>If you do not have a column
 					to update please write 0$ in the row for this column of table "search_results". ' . $hint . '</br>Please go
 					to the <a href="../../../topic_analysis_00_menu.php">menu</a>.';
 				}else{
+				    $htmlcodeforsnapshot='';
 				    /*Second step: We continue to ask what row in this textfield is not 0$. This information is saved in
 				    $search_string_for_results. Then we use the column names in $finfoarray. Then we can relate each row's
 				    entry to each column's name.*/
@@ -135,17 +135,17 @@
 				    $errormessage=0;
 				    $markforlinksforcompletions=0;
 				    for($zaehler=0;$zaehler<$amountofinsertedrows;$zaehler++){
+				    	$whatrow=$zaehler+1;
 				    	if($search_string_for_results[$zaehler]<>"0"){
 				    		//A string for a search engine is standing in a row.
-				    		$zaehlerforcolumns=$zaehler+3;
-				    		$whatrow=$zaehler+1;
-				    		$columnname=$finfoarray[$zaehlerforcolumns];
+				    		$columnincrement=$zaehler+notimportantcolumnstablesearchresults();
+				    		$columnname=$finfoarray[$columnincrement];
 				    		switch($columnname){
-				    			case "author":
+				    			case "authors":
 				    				$showerrormessage=$showerrormessage . '<tr>
 						<td style="width: 637px; height: 23px;">No handler for completing "author" in table "search_results" with the help of the search
 				    				engine ' . $search_string_for_results[$zaehler] . '.</br>Please write a function
-				    				and call it from "topic_analysis_04_create_and_complete_treatment_02.php" for handling the completion of
+				    				and call it from "topic_analysis_04_fill_and_complete_treatment_02.php" for handling the completion of
 				    				"author" in table "search_results" with the help of the search engine
 				    				' . $search_string_for_results[$zaehler] . '. If you do not have a handler for this search engine
 				    				please write 0$ in the ' . $whatrow . '. row of the third
@@ -160,7 +160,7 @@
 				    				$showerrormessage=$showerrormessage . '<tr>
 						<td style="width: 637px; height: 23px;">No handler for completing "title" in table "search_results" with the help of the search
 				    				engine ' . $search_string_for_results[$zaehler] . '.</br>Please write a function
-				    				and call it from "topic_analysis_04_create_and_complete_treatment_02.php" for handling the completion of
+				    				and call it from "topic_analysis_04_fill_and_complete_treatment_02.php" for handling the completion of
 				    				"title" in table "search_results" with the help of the search engine
 				    				' . $search_string_for_results[$zaehler] . '. If you do not have a handler for this search engine
 				    				please write 0$ in the ' . $whatrow . '. row of the third field of the <a href="../../../topic_analysis_02_modify.php">html-form for modifying components of
@@ -174,7 +174,7 @@
 					    			$showerrormessage=$showerrormessage . '<tr>
 						<td style="width: 637px; height: 23px;">No handler for completing "conference" in table "search_results" with the help of the search
 				    				engine ' . $search_string_for_results[$zaehler] . '.</br>Please write a function
-				    				and call it from "topic_analysis_04_create_and_complete_treatment_02.php" for handling the completion of
+				    				and call it from "topic_analysis_04_fill_and_complete_treatment_02.php" for handling the completion of
 				    				"conference" in table "search_results" with the help of the search engine
 				    				' . $search_string_for_results[$zaehler] . '. If you do not have a handler for this search engine
 				    				please write 0$ in the ' . $whatrow . '. row of the third field of the <a href="../../../topic_analysis_02_modify.php">html-form for modifying components of
@@ -188,7 +188,7 @@
 				    				$showerrormessage=$showerrormessage . '<tr>
 						<td style="width: 637px; height: 23px;">No handler for completing "year" in table "search_results" with the help of the search
 				    				engine ' . $search_string_for_results[$zaehler] . '.</br>Please write a function
-				    				and call it from "topic_analysis_04_create_and_complete_treatment_02.php" for handling the completion of
+				    				and call it from "topic_analysis_04_fill_and_complete_treatment_02.php" for handling the completion of
 				    				"year" in table "search_results" with the help of the search engine
 				    				' . $search_string_for_results[$zaehler] . '. If you do not have a handler for this search engine
 				    				please write 0$ in the ' . $whatrow . '. row of the third
@@ -222,7 +222,7 @@
 					    				$showerrormessage=$showerrormessage . '<tr>
 					<td style="width: 637px; height: 23px;">No handler for completing "first_link_to_abstracttext" in table "search_results" with the help of the search
 				    				engine ' . $search_string_for_results[$zaehler] . '.</br>Please write a function
-				    				and call it from "topic_analysis_04_create_and_complete_treatment_02.php" for handling the completion of
+				    				and call it from "topic_analysis_04_fill_and_complete_treatment_02.php" for handling the completion of
 				    				"first_link_to_abstracttext" in table "search_results" with the help of the search engine
 				    				' . $search_string_for_results[$zaehler] . '. If you do not have a handler for this search engine
 				    				please write 0$ in the ' . $whatrow . '. row of the third
@@ -256,7 +256,7 @@
 						    			$showerrormessage=$showerrormessage . '<tr>
 										<td style="width: 637px; height: 23px;">No handler for completing "abstracttext" in table "search_results" with the help of the search
 					    				engine ' . $search_string_for_results[$zaehler] . '.</br>Please write a function
-					    				and call it from "topic_analysis_04_create_and_complete_treatment_02.php" for handling the completion of
+					    				and call it from "topic_analysis_04_fill_and_complete_treatment_02.php" for handling the completion of
 					    				"abstracttext" in table "search_results" with the help of the search engine
 					    				' . $search_string_for_results[$zaehler] . '. If you do not have a handler for this search engine
 					    				please write 0$ in the ' . $whatrow . '. row of the third
@@ -267,11 +267,25 @@
 							    		$errormessage=1;
 						    		}
 							    break;
+							  	case "abstracttext_for_lda":
+				    				$showerrormessage=$showerrormessage . '<tr>
+						<td style="width: 637px; height: 23px;">No handler for completing "abstracttext_for_lda" in table "search_results" with the help of the search
+				    				engine ' . $search_string_for_results[$zaehler] . '.</br>Please write a function
+				    				and call it from "topic_analysis_04_fill_and_complete_treatment_02.php" for handling the completion of
+				    				"abstracttext_for_lda" in table "search_results" with the help of the search engine
+				    				' . $search_string_for_results[$zaehler] . '. If you do not have a handler for this search engine
+				    				please write 0$ in the ' . $whatrow . '. row of the third
+				    				field of the <a href="../../../topic_analysis_02_modify.php">html-form for modifying components of
+				    				a topic analysis</a>.</br></td>
+						<td style="height: 23px">&nbsp;</td>
+					</tr>';					
+						    		$errormessage=1;
+									break;
 				    			case "first_link_to_pdffulltext":
 				    				$showerrormessage=$showerrormessage . '<tr>
 						<td style="width: 637px; height: 23px;">No handler for completing "first_link_to_pdffulltext" in table "search_results" with the help of the search
 				    				engine ' . $search_string_for_results[$zaehler] . '.</br>Please write a function
-				    				and call it from "topic_analysis_04_create_and_complete_treatment_02.php" for handling the completion of
+				    				and call it from "topic_analysis_04_fill_and_complete_treatment_02.php" for handling the completion of
 				    				"first_link_to_pdffulltext" in table "search_results" with the help of the search engine
 				    				' . $search_string_for_results[$zaehler] . '. If you do not have a handler for this search engine
 				    				please write 0$ in the ' . $whatrow . '. row of the third
@@ -367,6 +381,20 @@
 						    			$errormessage=1;
 						    		}
 				    				break;
+							  	case "pdffulltext_for_lda":
+				    				$showerrormessage=$showerrormessage . '<tr>
+						<td style="width: 637px; height: 23px;">No handler for completing "pdffulltext_for_lda" in table "search_results" with the help of the search
+				    				engine ' . $search_string_for_results[$zaehler] . '.</br>Please write a function
+				    				and call it from "topic_analysis_04_fill_and_complete_treatment_02.php" for handling the completion of
+				    				"pdffulltext_for_lda" in table "search_results" with the help of the search engine
+				    				' . $search_string_for_results[$zaehler] . '. If you do not have a handler for this search engine
+				    				please write 0$ in the ' . $whatrow . '. row of the third
+				    				field of the <a href="../../../topic_analysis_02_modify.php">html-form for modifying components of
+				    				a topic analysis</a>.</br></td>
+						<td style="height: 23px">&nbsp;</td>
+					</tr>';					
+						    		$errormessage=1;
+									break;
 					    			default:
 				    				$showerrormessage=$showerrormessage . '<tr>
 						<td style="width: 637px; height: 23px;">There is no column and the search engine ' . $search_string_for_results[$zaehler] . '

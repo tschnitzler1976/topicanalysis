@@ -27,9 +27,9 @@
 
 <body>
 
-<form method="post" action="04_create_and_complete/handlers/dummy_search_engine/topic_analysis_04_create_and_complete_treatment_01.php">
+<form method="post" action="04_fill_and_complete/handlers/dummy_search_engine/topic_analysis_04_fill_and_complete_treatment_01.php">
 
-	Select an existing topic analysis to create and complete its search results<br />
+	Select an existing topic analysis to fill and complete its search results<br />
 	<table style="width: 100%">
 		<tr>
 			<td style="width: 416px">
@@ -47,7 +47,7 @@
 				<tr>
 					<td style="width: 108px; height: 30px;"></td>
 					<td style="height: 30px">
-<input name="submit_topic_analysis_04_create_and_complete" type="submit" value="Select topic analysis and create search results" class="auto-style1" style="height: 26px; width: 333px;" tabindex="2"/></td>
+<input name="submit_topic_analysis_04_fill_and_complete" type="submit" value="Select topic analysis and fill search results" class="auto-style1" style="height: 26px; width: 333px;" tabindex="2"/></td>
 				</tr>
 			</table>
 			</td>

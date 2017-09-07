@@ -18,10 +18,7 @@
 		$returndbfetcharray=dbfetcharray($returndbselect);
 		$returndbfetchfield=dbfetchfield($returndbfetcharray,'name');
 		$topicanalysisname=$returndbfetchfield;
-		
-		/*Before saving any checked and unchecked exclusion checkboxes we need to have the search_result_ids that
-		identify each checkbox. Then we access each value of each POST-Variable of each checkbox.*/
-		
+				
 		//At first select the search_strings_ids	
 		$dbselectresult=dbselect($returndbconnect,"search_strings","id_topic_analysis='$topicanalysisid'","id");
 		$dbnumrowsvar=dbnumrows($dbselectresult);

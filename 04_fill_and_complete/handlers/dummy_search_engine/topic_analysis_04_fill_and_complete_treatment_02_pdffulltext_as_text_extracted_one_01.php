@@ -78,7 +78,7 @@
 	</head>
 	
 	<body>
-		<form method="post" action="topic_analysis_04_create_and_complete_treatment_02_pdffulltext_as_text_extracted_all_02.php">
+		<form method="post" action="topic_analysis_04_fill_and_complete_treatment_02_pdffulltext_as_text_extracted_all_02.php">
 		<table style="width: 100%">
 			<tr>
 				<td style="width: 775px; height: 79px;">
@@ -88,7 +88,7 @@
 						<td>&nbsp;</td>
 					</tr>' . $textareafields . '
 						<tr>
-						<td style="width: 743px; height: 23px;"><input name="submit_topic_analysis_04_create_and_complete_treatment_02_pdffulltext_as_text_extracted_all_01" type="submit" value="Extract"/></td>
+						<td style="width: 743px; height: 23px;"><input name="submit_topic_analysis_04_fill_and_complete_treatment_02_pdffulltext_as_text_extracted_all_01" type="submit" value="Extract"/></td>
 						<td><input name="hiddentexttopicanalysisid" type="hidden" value="' . $topicanalysisid .'"/></td>
 					</tr>
 					</table>

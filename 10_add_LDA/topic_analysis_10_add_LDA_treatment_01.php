@@ -2,7 +2,7 @@
 /*Algorithm:
   1. d) Add a LDA, i.e. let the user select abstracts and pdffulltexts of the already selected topic analysis. After this the
   LDA must be added. Type in the selection of the abstracts and pdffulltexts for this new LDA, the name for the new LDA and
-  and the amount of topics LDA must produce.
+  the amount of topics LDA must produce.
 */ 
 
 	set_include_path("../00_general");

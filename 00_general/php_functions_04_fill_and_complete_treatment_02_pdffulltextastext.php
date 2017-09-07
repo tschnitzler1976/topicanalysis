@@ -37,7 +37,7 @@ include_once("mysql_db_functions.php");
 				 to a filled field in column "path_to_pdffulltext".*/
 				$linksforcompletions=$linksforcompletions .
 			'<tr>
-				<td style="width: 743px; height: 23px;"><a href="topic_analysis_04_create_and_complete_treatment_02_pdffulltext_as_text_all.php?topicanalysisid=' . $topicanalysisid . '" target="_blank">Complete the search results for more than one texts of pdffulltexts.</a></td>
+				<td style="width: 743px; height: 23px;"><a href="topic_analysis_04_fill_and_complete_treatment_02_pdffulltext_as_text_all.php?topicanalysisid=' . $topicanalysisid . '" target="_blank">Complete the search results for more than one texts of pdffulltexts.</a></td>
 				<td>&nbsp;</td>
 			</tr><tr>
 				<td style="width: 743px; height: 23px;">&nbsp;</td>
@@ -49,7 +49,7 @@ include_once("mysql_db_functions.php");
 					//We just update one field in column path_to_pdffulltext.s
 					$linksforcompletions=$linksforcompletions .
 			'<tr>
-				<td style="width: 743px; height: 23px;"><a href="topic_analysis_04_create_and_complete_treatment_02_pdffulltext_as_text_one.php?topicanalysisid=' . $topicanalysisid . '" target="_blank">Complete one search result for the text of a pdffulltext.</a></td>
+				<td style="width: 743px; height: 23px;"><a href="topic_analysis_04_fill_and_complete_treatment_02_pdffulltext_as_text_one.php?topicanalysisid=' . $topicanalysisid . '" target="_blank">Complete one search result for the text of a pdffulltext.</a></td>
 				<td>&nbsp;</td>
 			</tr><tr>
 				<td style="width: 743px; height: 23px;">&nbsp;</td>

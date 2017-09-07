@@ -6,7 +6,7 @@
 </head>
 
 <body>
-	Topic analysis tool for 101 wiki<br />
+	Menu for the topic analysis tool<br />
 	<table style="width: 100%">
 		<tr>
 			<td style="width: 538px; height: 23px;">
@@ -27,7 +27,7 @@
 		</tr>
 		<tr>
 			<td style="width: 538px; height: 23px;">
-			<a href="topic_analysis_04_create_and_complete_search_results.php">
+			<a href="topic_analysis_04_fill_and_complete_search_results.php">
 			Create and complete search results of an existing topic 
 			analysis</a>&nbsp;</td>
 			<td style="height: 23px">&nbsp;</td>

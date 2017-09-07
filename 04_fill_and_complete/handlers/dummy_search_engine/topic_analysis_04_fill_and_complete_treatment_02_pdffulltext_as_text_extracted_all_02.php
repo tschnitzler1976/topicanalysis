@@ -7,11 +7,11 @@
 	include_once("php_functions.php");
 	
 	/*We select anything here what we have already selected in
-	topic_analysis_04_create_and_complete_treatment_02_pdffulltext_as_text_extracted_all_01.php in order to recover the ids
+	topic_analysis_04_fill_and_complete_treatment_02_pdffulltext_as_text_extracted_all_01.php in order to recover the ids
 	for the textareas-fields with the manually extracted texts for pdffulltexts that will be saved at the end of this script.*/
 	if(isset($_POST["hiddentextzaehler3"])){
 		/*$zaehler3 is a checkvariable that prevents another script than
-		"topic_analysis_04_create_and_complete_treatment_02_pdffulltext_as_text_extracted_all_01.php" from loading this script.*/
+		"topic_analysis_04_fill_and_complete_treatment_02_pdffulltext_as_text_extracted_all_01.php" from loading this script.*/
 		$zaehler3=htmlstringtostring($_POST["hiddentextzaehler3"]);
 		$topicanalysisid=htmlstringtostring($_POST["hiddentexttopicanalysisid"]);
 		$usermessage="";	
@@ -106,7 +106,7 @@
 			echo 'Search strings missing for this topic analysis. <a href="javascript:close();">Close this window</a>';
 		}
 		dbdisconnect($returndbconnect);	
-	}else{//This script was called as an alternative to a HTTP-POST-Submit of the script "topic_analysis_04_create_and_complete_treatment_02_pdffulltext_as_text_extracted_all_01.php. Therefore we throw an error message.
-		echo 'This scripts depends on a HTTP-POST-Submit of the script "topic_analysis_04_create_and_complete_treatment_02_pdffulltext_as_text_extracted_all_01.php". <a href="javascript:close();">Close this window</a>.</br>';
+	}else{//This script was called as an alternative to a HTTP-POST-Submit of the script "topic_analysis_04_fill_and_complete_treatment_02_pdffulltext_as_text_extracted_all_01.php. Therefore we throw an error message.
+		echo 'This scripts depends on a HTTP-POST-Submit of the script "topic_analysis_04_fill_and_complete_treatment_02_pdffulltext_as_text_extracted_all_01.php". <a href="javascript:close();">Close this window</a>.</br>';
 	}
 ?>

@@ -3,12 +3,27 @@ include_once("mysql_db_connection.php");
 include_once("mysql_db_queries.php");
 include_once("mysql_db_functions.php");
 	
+	/*We must have the difference value of columns that are in table search results and actual completing procedures for
+	attributes of table search_results which each are in listed in a switch case selection in
+	04_fill_and_complete\handlers\dummy_search_engine\topic_analysis_04_fill_and_complete_treatment_02.php, i.e. if
+	a column is added to table search_results and the amount for columns for columns to complete in table search_results
+	stays the same in 04_fill_and_complete\handlers\dummy_search_engine\topic_analysis_04_fill_and_complete_treatment_02.php
+	then we have to increment the returnvalue of this function, otherwise we decrement. At 2017-09-30 we have 18 columns
+	in table search_results. We have 10 cases for completing scientific articles' attributes in table search_results.
+	Thus we have to return 8 columns that are not interesting for the completing procedures in line of
+	topic_analysis_04_fill_and_complete_search_results.php.
+	Therefore we have function "notimportantcolumnstablesearchresults" for the columns that are excluded in the above
+	mentioned sense at the beginning of table search_results and we have function
+	"notimportantcolumnstablesearchresultsattheend" 
+	*/
 	function notimportantcolumnstablesearchresults(){
-		/*This is the number that has to be updated if a column is added to table search_results and search_strings_for_results (third text area in the modify-form
-		 "topic_analysis_02_modify_treatment_01.php")is indifferent towards this added column (amount of rows in this textarea equal to the mandatory columns to be updated by search results of found search engines). 
-		*/
-		return 4;
+		return 3;
 	}
+
+	function notimportantcolumnstablesearchresultsattheend(){
+		return 3;
+	}
+	
 	
 	function renamefile($oldfile,$newfile){
 	    if (!rename($oldfile,$newfile)) {
@@ -23,43 +38,43 @@ include_once("mysql_db_functions.php");
 	
 	function pathtosearchresults($topicanalysisname){
 		$pathtohtdocs='C:/xampp/htdocs/';
-		$returnvalue=$pathtohtdocs . 'topic_analysis/04_create_and_complete/search_results/' . $topicanalysisname . '/';
+		$returnvalue=$pathtohtdocs . 'topic_analysis/04_fill_and_complete/search_results/' . $topicanalysisname . '/';
 		return $returnvalue;		
 	}
 	
 	function pathtosearchresultone($topicanalysisname){
 		$pathtohtdocs='C:/xampp/htdocs/';
-		$returnvalue=$pathtohtdocs . 'topic_analysis/04_create_and_complete/search_results/' . $topicanalysisname . '/search_results_01/';
+		$returnvalue=$pathtohtdocs . 'topic_analysis/04_fill_and_complete/search_results/' . $topicanalysisname . '/search_results_01/';
 		return $returnvalue;
 	}
 	
 	function pathtosearchresulttwo($topicanalysisname){
 		$pathtohtdocs='C:/xampp/htdocs/';
-		$returnvalue=$pathtohtdocs . 'topic_analysis/04_create_and_complete/search_results/' . $topicanalysisname . '/search_results_02/';
+		$returnvalue=$pathtohtdocs . 'topic_analysis/04_fill_and_complete/search_results/' . $topicanalysisname . '/search_results_02/';
 		return $returnvalue;
 	}
 
 	function pathtopdffulltexts($topicanalysisname){
 		$pathtohtdocs='C:/xampp/htdocs/';
-		$returnvalue=$pathtohtdocs . 'topic_analysis/04_create_and_complete/search_results/' . $topicanalysisname . '/pdffulltext/';
+		$returnvalue=$pathtohtdocs . 'topic_analysis/04_fill_and_complete/search_results/' . $topicanalysisname . '/pdffulltext/';
 		return $returnvalue;
 	}
 
 	function pathtopdffulltextsall($topicanalysisname){
 		$pathtohtdocs='C:/xampp/htdocs/';
-		$returnvalue=$pathtohtdocs . 'topic_analysis/04_create_and_complete/search_results/' . $topicanalysisname . '/pdffulltext/all/';
+		$returnvalue=$pathtohtdocs . 'topic_analysis/04_fill_and_complete/search_results/' . $topicanalysisname . '/pdffulltext/all/';
 		return $returnvalue;
 	}
 
 	function pathtopdffulltextsalltemp($topicanalysisname){
 		$pathtohtdocs='C:/xampp/htdocs/';
-		$returnvalue=$pathtohtdocs . 'topic_analysis/04_create_and_complete/search_results/' . $topicanalysisname . '/pdffulltext/all/temp/';
+		$returnvalue=$pathtohtdocs . 'topic_analysis/04_fill_and_complete/search_results/' . $topicanalysisname . '/pdffulltext/all/temp/';
 		return $returnvalue;
 	}
 
 	function pathtopdffulltextsone($topicanalysisname){
 		$pathtohtdocs='C:/xampp/htdocs/';
-		$returnvalue=$pathtohtdocs . 'topic_analysis/04_create_and_complete/search_results/' . $topicanalysisname . '/pdffulltext/one/';
+		$returnvalue=$pathtohtdocs . 'topic_analysis/04_fill_and_complete/search_results/' . $topicanalysisname . '/pdffulltext/one/';
 		return $returnvalue;
 	}
 
@@ -76,7 +91,7 @@ include_once("mysql_db_functions.php");
 	}
 	
 	function pathtowget(){
-		$returnvalue="C:/xampp/htdocs/topic_analysis/04_create_and_complete/tools/wget.exe";
+		$returnvalue="C:/xampp/htdocs/topic_analysis/04_fill_and_complete/tools/wget.exe";
 		return $returnvalue;
 	}
 	
@@ -97,7 +112,7 @@ include_once("mysql_db_functions.php");
 	}
 
 	function pdftotext_executable(){
-		return "C:/xampp/htdocs/topic_analysis/04_create_and_complete/tools/pdftotext.exe";
+		return "C:/xampp/htdocs/topic_analysis/04_fill_and_complete/tools/pdftotext.exe";
 	}
 
 	function pathtolda(){

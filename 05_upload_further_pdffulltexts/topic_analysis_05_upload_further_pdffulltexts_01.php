@@ -1,7 +1,7 @@
 <?php
 /* Here the user has the possibility to add pdffulltexts for this topic analysis if the user is of the opinion that too less
 pdffulltexts are in the database after he or she read the information about the amount status of pdffulltexts in the database
-at "04_create_and_complete/handlers/dummy_search_engine/topic_analysis_04_create_and_complete_treatment_02.php"
+at "04_fill_and_complete/handlers/dummy_search_engine/topic_analysis_04_fill_and_complete_treatment_02.php"
 */ 
 
 	set_include_path("../00_general");

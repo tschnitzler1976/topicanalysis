@@ -218,7 +218,7 @@
 					"first_link_to_abstracttext", "abstracttext", 
 					"first_link_to_pdffulltext", 
 					"path_to_pdffulltext", "pdffulltext_as_text" and 
-					"pdffulltext_as_text".<br>If you have a handler to search 
+					"pdffulltext_as_text_extracted".<br>If you have a handler to search 
 					and save data for any of the above listed attributes then 
 					write this handler\'s identifier in the i-th row where the 
 					i-th column is an attribute above. If you do not have a 

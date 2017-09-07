@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 16. Aug 2017 um 14:28
+-- Erstellungszeit: 07. Sep 2017 um 19:02
 -- Server-Version: 10.1.21-MariaDB
 -- PHP-Version: 5.6.30
 
@@ -183,7 +183,7 @@ ALTER TABLE `lda`
 -- AUTO_INCREMENT für Tabelle `lda_id_search_results`
 --
 ALTER TABLE `lda_id_search_results`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1111;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1165;
 --
 -- AUTO_INCREMENT für Tabelle `research_questions`
 --
@@ -193,7 +193,7 @@ ALTER TABLE `research_questions`
 -- AUTO_INCREMENT für Tabelle `search_results`
 --
 ALTER TABLE `search_results`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1717;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1715;
 --
 -- AUTO_INCREMENT für Tabelle `search_strings`
 --
