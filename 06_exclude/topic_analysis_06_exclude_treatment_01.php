@@ -159,9 +159,9 @@
 					<tr>
 						<td style="width: 644px; height: 23px;">Please exclude 
 						the particular search results with the help of&nbsp; the 
-						checkboxes below. If these search results<br>answer the 
+						checkboxes below. If these search results answer the 
 						research questions below you need not to exclude the 
-						particular search results. This step is in line with the
+						particular search results. This step is in terms of the
 						 third step of the systematic mapping study
 						 (see <a href="https://userpages.uni-koblenz.de/~laemmel/esecourse/slides/sms.pdf">
 					slides for the systematic mapping study</a>) at slide 21.</td>

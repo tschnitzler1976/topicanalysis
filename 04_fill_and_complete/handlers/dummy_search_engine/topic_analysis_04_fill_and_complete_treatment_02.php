@@ -68,16 +68,16 @@
 			   and in line of topic_analysis_04_fill_and_complete_treatment_02.php (search results for search strings
 			   from the third textarea field in the html-modify-form).
 			   
-				Now we have can continue as follows:
-				We complete the search results in the favour of the user. The user must insert the URL to the search engine
-				he likes to contact in order to fetch the information that is an update for the part of the search results
-				he likes to enrich. At first we check whether the amount of rows in the third textarea is the same as the
-				amount of table columns in table "search_results" that are updateable by the user. If the inserted rows in
-				this textfield is equal to the updateable fields of table "search_results" then we continue to ask what
-				row in this textfield is not 0$. If we have a row that is not 0$ then we relate the row to the table column.
-				Then we read the string that is not 0$. This string is the URL to the search engine and our means to switch to
-				the function that treats fetching information for the respective column in table "search_strings" if this
-				particular search engine is called.*/
+				Now we continue as follows:
+				We complete the search results in the favour of the user. The user must insert the URL to the search engine the
+				user likes to contact in order to fetch the information that is an update for the part of the search results the
+                user likes to enrich. At first we check whether the amount of rows in the third textarea of the form where we
+                added or modified the topic analysis is the same as the amount of table columns in table search_results that are
+                updateable by the user. If the inserted rows in this textfield is equal to the updateable fields of table
+                search_results then we continue to ask what row in this textfield is not 0$. If we have a row that is not 0$ then
+                we relate the row to the table column. Then we read the string that is not 0$. This string is the URL to the
+                search engine and our means to switch to the function that treats fetching information for the respective
+                column in table "search_strings" if this particular search engine is called.*/
 				
 				/*First step (first part): Check of amount of rows in the third textarea for this topic analysis.*/ 
 
