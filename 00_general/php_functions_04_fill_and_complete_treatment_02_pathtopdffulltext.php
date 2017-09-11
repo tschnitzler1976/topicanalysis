@@ -37,7 +37,7 @@ include_once("mysql_db_functions.php");
 				 to a filled field in column "first_link_to_pdffulltext".*/
 				$linksforcompletions=$linksforcompletions .
 			'<tr>
-				<td style="width: 743px; height: 23px;"><a href="topic_analysis_04_fill_and_complete_treatment_02_path_to_pdffulltext_all.php?topicanalysisid=' . $topicanalysisid . '" target="_blank">Complete the search results for more than one paths to pdffulltexts.</a></td>
+				<td style="width: 743px; height: 23px;"><a href="topic_analysis_04_fill_and_complete_treatment_02_path_to_pdffulltext_all.php?topicanalysisid=' . $topicanalysisid . '" target="_blank">Complete the search results for any "path to pdffulltext".</a></td>
 				<td>&nbsp;</td>
 			</tr><tr>
 				<td style="width: 743px; height: 23px;">&nbsp;</td>
@@ -46,7 +46,7 @@ include_once("mysql_db_functions.php");
 			}elseif($dbnumrowscount1-$dbnumrowscount2!=$dbnumrowscount1){
 				if($dbnumrowscount1-$dbnumrowscount2>0){
 
-					//We just update one field in column path_to_pdffulltext.s
+					//We just update one field in column path_to_pdffulltext.
 					$linksforcompletions=$linksforcompletions .
 			'<tr>
 				<td style="width: 743px; height: 23px;"><a href="topic_analysis_04_fill_and_complete_treatment_02_path_to_pdffulltext_one.php?topicanalysisid=' . $topicanalysisid . '" target="_blank">Complete one search result for the path to a pdffulltext.</a></td>

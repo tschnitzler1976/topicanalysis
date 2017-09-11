@@ -5,10 +5,10 @@ include_once("mysql_db_functions.php");
 
 	function pdffulltextastextextracted($topicanalysisid,$topicanalysisname,$linksforcompletions){
 		/*We look into the column "pdffulltext_as_text" of table search_results. If we have more than 0 pdffulltexts_as_texts for
-		  the column pdffulltext_as_text_extracted then we put out a link to a popup-window for updating the column pdffulltext_as_text_extracted.*/
+		  the column pdffulltext_as_text_extracted then we display a link to a popup-window for updating the column pdffulltext_as_text_extracted.*/
 		$returndbconnect=dbconnect();
 		/*In order to be able to relate the handler for filling the column "pdffulltext" of table "search_results"
-	    with the help of the information in column "first_link_for_pdffulltext" we fetch each $searchstringid for
+	    with the help of the information in column "pdffulltext_as_text" we fetch each $searchstringid for
 	    the $topicanalysisid*/
 		$returndbselect=dbselect($returndbconnect,"search_strings", "id_topic_analysis='$topicanalysisid'","id");
 		$zaehler=0;
@@ -37,26 +37,13 @@ include_once("mysql_db_functions.php");
 				 to a filled field in column "pdffulltext_as_text".*/
 				$linksforcompletions=$linksforcompletions .
 			'<tr>
-				<td style="width: 743px; height: 23px;"><a href="topic_analysis_04_fill_and_complete_treatment_02_pdffulltext_as_text_extracted_all_01.php?topicanalysisid=' . $topicanalysisid . '" target="_blank">Complete the search results for more than one texts of pdffulltexts that have to be extracted.</a></td>
+				<td style="width: 743px; height: 23px;"><a href="topic_analysis_04_fill_and_complete_treatment_02_pdffulltext_as_text_extracted_all_01.php?topicanalysisid=' . $topicanalysisid . '" target="_blank">Show the converted pdffulltexts for the manual extraction.</a></td>
 				<td>&nbsp;</td>
 			</tr><tr>
 				<td style="width: 743px; height: 23px;">&nbsp;</td>
 				<td>&nbsp;</td>
 			</tr>';
-			}elseif($dbnumrowscount1-$dbnumrowscount2!=$dbnumrowscount1){
-				if($dbnumrowscount1-$dbnumrowscount2>0){
-
-					//We just update one field in column path_to_pdffulltext.s
-					$linksforcompletions=$linksforcompletions .
-			'<tr>
-				<td style="width: 743px; height: 23px;"><a href="topic_analysis_04_fill_and_complete_treatment_02_pdffulltext_as_text_extracted_one_01.php?topicanalysisid=' . $topicanalysisid . '" target="_blank">Complete one search result for one text of a pdffulltext that has to be extracted.</a></td>
-				<td>&nbsp;</td>
-			</tr><tr>
-				<td style="width: 743px; height: 23px;">&nbsp;</td>
-				<td>&nbsp;</td>
-					</tr>';
-				}
-			}	
+			}
 		}
 		dbdisconnect($returndbconnect);
 		return $linksforcompletions;

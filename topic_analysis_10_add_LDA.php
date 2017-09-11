@@ -46,7 +46,7 @@
 				<tr>
 					<td style="width: 74px">&nbsp;</td>
 					<td>
-<input name="submit_topic_analysis_10_add_LDA" type="submit" value="Select a topic analysis for a new LDA" class="auto-style1" style="height: 26px; width: 256px;" tabindex="2"/></td>
+<input name="submit_topic_analysis_10_add_LDA" type="submit" value="Select a topic analysis for a new LDA" class="auto-style1" style="height: 26px; width: 286px;" tabindex="2"/></td>
 				</tr>
 			</table>
 			</td>
