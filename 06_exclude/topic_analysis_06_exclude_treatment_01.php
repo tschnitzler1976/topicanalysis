@@ -164,7 +164,7 @@
 						particular search results. This step is in terms of the
 						 third step of the systematic mapping study
 						 (see <a href="https://userpages.uni-koblenz.de/~laemmel/esecourse/slides/sms.pdf">
-					slides for the systematic mapping study</a>) at slide 21.</td>
+					slides for the systematic mapping study</a>) at slide 21 and is compulsive.</td>
 						<td>&nbsp;</td>
 					</tr>
 					<tr>
@@ -185,7 +185,7 @@
 				&nbsp;</td><td>&nbsp;</td>
 			</tr></table><table style="width: 445px"><tr><td>&nbsp;</td>
 					<td style="width: 334px">&nbsp;</td><td style="width: 191px">
-					<input name="submit_topic_analysis_06_exclude_treatment_02" type="submit" value="Exclude checked search results" class="auto-style1" style="width: 265px"/></td></tr><tr><td>
+					<input name="submit_topic_analysis_06_exclude_treatment_02" type="submit" value="Exclude" class="auto-style1" style="width: 265px"/></td></tr><tr><td>
 						&nbsp;</td><td style="width: 334px">&nbsp;</td>
 						<td style="width: 191px">&nbsp;</td></tr><tr><td>&nbsp;</td>
 						<td style="width: 334px">&nbsp;</td><td style="width: 191px">
