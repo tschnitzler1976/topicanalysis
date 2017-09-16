@@ -37,44 +37,44 @@ include_once("mysql_db_functions.php");
 	}
 	
 	function pathtosearchresults($topicanalysisname){
-		$pathtohtdocs='C:/xampp/htdocs/';
-		$returnvalue=$pathtohtdocs . 'topic_analysis/04_fill_and_complete/search_results/' . $topicanalysisname . '/';
+		$pathtoapp='C:/xampp/htdocs/topic_analysis/';
+		$returnvalue=$pathtoapp . '04_fill_and_complete/search_results/' . $topicanalysisname . '/';
 		return $returnvalue;		
 	}
 	
 	function pathtosearchresultone($topicanalysisname){
-		$pathtohtdocs='C:/xampp/htdocs/';
-		$returnvalue=$pathtohtdocs . 'topic_analysis/04_fill_and_complete/search_results/' . $topicanalysisname . '/search_results_01/';
+		$pathtoapp='C:/xampp/htdocs/topic_analysis/';
+		$returnvalue=$pathtoapp . '04_fill_and_complete/search_results/' . $topicanalysisname . '/search_results_01/';
 		return $returnvalue;
 	}
 	
 	function pathtosearchresulttwo($topicanalysisname){
-		$pathtohtdocs='C:/xampp/htdocs/';
-		$returnvalue=$pathtohtdocs . 'topic_analysis/04_fill_and_complete/search_results/' . $topicanalysisname . '/search_results_02/';
+		$pathtoapp='C:/xampp/htdocs/topic_analysis/';
+		$returnvalue=$pathtoapp . '04_fill_and_complete/search_results/' . $topicanalysisname . '/search_results_02/';
 		return $returnvalue;
 	}
 
 	function pathtopdffulltexts($topicanalysisname){
-		$pathtohtdocs='C:/xampp/htdocs/';
-		$returnvalue=$pathtohtdocs . 'topic_analysis/04_fill_and_complete/search_results/' . $topicanalysisname . '/pdffulltext/';
+		$pathtoapp='C:/xampp/htdocs/topic_analysis/';
+		$returnvalue=$pathtoapp . '04_fill_and_complete/search_results/' . $topicanalysisname . '/pdffulltext/';
 		return $returnvalue;
 	}
 
 	function pathtopdffulltextsall($topicanalysisname){
-		$pathtohtdocs='C:/xampp/htdocs/';
-		$returnvalue=$pathtohtdocs . 'topic_analysis/04_fill_and_complete/search_results/' . $topicanalysisname . '/pdffulltext/all/';
+		$pathtoapp='C:/xampp/htdocs/topic_analysis/';
+		$returnvalue=$pathtoapp . '04_fill_and_complete/search_results/' . $topicanalysisname . '/pdffulltext/all/';
 		return $returnvalue;
 	}
 
 	function pathtopdffulltextsalltemp($topicanalysisname){
-		$pathtohtdocs='C:/xampp/htdocs/';
-		$returnvalue=$pathtohtdocs . 'topic_analysis/04_fill_and_complete/search_results/' . $topicanalysisname . '/pdffulltext/all/temp/';
+		$pathtoapp='C:/xampp/htdocs/topic_analysis/';
+		$returnvalue=$pathtoapp . '04_fill_and_complete/search_results/' . $topicanalysisname . '/pdffulltext/all/temp/';
 		return $returnvalue;
 	}
 
 	function pathtopdffulltextsone($topicanalysisname){
-		$pathtohtdocs='C:/xampp/htdocs/';
-		$returnvalue=$pathtohtdocs . 'topic_analysis/04_fill_and_complete/search_results/' . $topicanalysisname . '/pdffulltext/one/';
+		$pathtoapp='C:/xampp/htdocs/topic_analysis/';
+		$returnvalue=$pathtoapp . '04_fill_and_complete/search_results/' . $topicanalysisname . '/pdffulltext/one/';
 		return $returnvalue;
 	}
 
@@ -89,12 +89,13 @@ include_once("mysql_db_functions.php");
 		$local=1;
 		return $local;
 	}
-	
+
 	function pathtowget(){
-		$returnvalue="C:/xampp/htdocs/topic_analysis/04_fill_and_complete/tools/wget.exe";
+		$pathtoapp='C:/xampp/htdocs/topic_analysis/';
+		$returnvalue=$pathtoapp . '04_fill_and_complete/tools/wget.exe';
 		return $returnvalue;
 	}
-	
+
 	function execwget($searchstringforresult,$onefile,$dirname){
 		chdir($dirname);
 		delete_files_in_dir($dirname);
@@ -112,12 +113,14 @@ include_once("mysql_db_functions.php");
 	}
 
 	function pdftotext_executable(){
-		return "C:/xampp/htdocs/topic_analysis/04_fill_and_complete/tools/pdftotext.exe";
+		$pathtoapp='C:/xampp/htdocs/topic_analysis/';
+		$returnvalue=$pathtoapp . '04_fill_and_complete/tools/pdftotext.exe';
+		return $returnvalue;
 	}
 
 	function pathtolda(){
-		$pathtohtdocs='C:/xampp/htdocs/';
-		$returnvalue=$pathtohtdocs . 'topic_analysis/13_execute_LDA/lda_input_execute_output/';
+		$pathtoapp='C:/xampp/htdocs/topic_analysis/';
+		$returnvalue=$pathtoapp . '13_execute_LDA/lda_input_execute_output/';
 		return $returnvalue;
 	}
 	

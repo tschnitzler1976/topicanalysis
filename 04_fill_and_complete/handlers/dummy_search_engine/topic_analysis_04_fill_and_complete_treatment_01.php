@@ -82,14 +82,7 @@
 				if(is_dir($dirname)==false){
 					mkdir($dirname);
 				}
-				if(wgetfromlocalorfrominternet()!=1){
-					//fetch any search results with wget.exe
-					execwget($searchstringsforwgetinputfile,false,$dirname);
-					//Delete the file with the search strings for wget.exe
-					if(file_exists($dirname . "wgetinput.txt")){
-						unlink($dirname . "wgetinput.txt");
-					}
-				}
+
 				//We loop through any search strings for the below problem.
 				//We need to know what kind of source for table search_results has to be treated. Therefore
 				//We call function checkequalitybetweensearchstringandfilename that has a template for already
@@ -117,6 +110,16 @@
 				}
 				
 				if($anythingfine==1){
+				
+					if(wgetfromlocalorfrominternet()!=1){
+						//fetch any search results with wget.exe
+						execwget($searchstringsforwgetinputfile,false,$dirname);
+						//Delete the file with the search strings for wget.exe
+						if(file_exists($dirname . "wgetinput.txt")){
+							unlink($dirname . "wgetinput.txt");
+						}
+					}	
+				
 					$writeok[0]=1;
 					$writeokoutput='';				
 					for($zaehler=0;$zaehler<sizeof($searchstringsids);$zaehler++){

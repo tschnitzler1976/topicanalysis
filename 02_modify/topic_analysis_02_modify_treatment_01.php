@@ -95,7 +95,7 @@
 		}
 	
 	
-	echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	echo '?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 	<html xmlns="http://www.w3.org/1999/xhtml">
 	
 	<head>
@@ -206,27 +206,24 @@
 					<td style="width: 481px; height: 23px;">
 					<table style="width: 83%">
 						<tr>
-							<td style="width: 255px">&nbsp;</td>
+							<td style="width: 342px">&nbsp;</td>
 							<td>
 							&nbsp;</td>
 						</tr>
 						
 										<tr>
-					<td style="width: 481px; height: 156px;"width: 509px">
-					The textfield below is for filling the fields of the search 
-					results which have the attributes "author", "title", "conference", "year", 
-					"first_link_to_abstracttext", "abstracttext", 
-					"first_link_to_pdffulltext", 
-					"path_to_pdffulltext", "pdffulltext_as_text" and 
-					"pdffulltext_as_text_extracted".<br>If you have a handler to search 
-					and save data for any of the above listed attributes then 
+					<td style="width: 342px; height: 156px;"width: 509px">
+					The picture beside illustrates how rows of the text area 
+					field below the picture have to be filled.<br>If you have a handler to 
+					complete the search 
+					then 
 					write this handler\'s identifier in the i-th row where the 
-					i-th column is an attribute above. If you do not have a 
-					handler for an attribute please write 0$ instead. Any row 
+					i-th column is an attribute in the picture beside. If you do 
+					not have a handler for this attribute please write 0$ in 
+					this related row instead. Any row 
 					must be finished by a Dollarsymbol "$" otherwise the 
-					parameter for a row will not be saved.<br>As of September 30, 
-					2017 the following handler for the following attributes 
-					exist:<br>
+					parameter for a row will not be saved.<br>The following handler for the following attributes 
+					already exist:<br>
 					<a href="http://www.researchgate.net">www.researchgate.net</a>$ 
 					for "first_link_to_abstracttext",<br>
 					<a href="http://www.researchgate.net">www.researchgate.net</a>$ 
@@ -235,21 +232,22 @@
 					"path_to_pdffulltext",<br>dummy_searchengine$ for 
 					"pdffulltext_as_text" and<br>dummy_searchengine$ for 
 					"pdffulltext_as_text_extracted.</td>
-											<td style="height: 156px"></td>
+											<td style="height: 156px">
+											<img alt="" height="521" src="01.png" width="461"></td>
 				</tr>
 						
 				<tr>
-					<td style="width: 481px"><input name="hiddentextsearchstringsid2" type="hidden" value="' . $txtsearchstringsid2 .'"/></td>
+					<td style="width: 342px"><input name="hiddentextsearchstringsid2" type="hidden" value="' . $txtsearchstringsid2 .'"/></td>
 					<td>&nbsp;</td>
 				</tr>
 				<tr>
-					<td style="width: 481px">
+					<td style="width: 342px">
 					<textarea name="textareasearchstringsforresults" style="width: 653px; height: 231px" rows="1" tabindex="3">' . $txtsearchstrings2 . '</textarea></td>
 					<td>&nbsp;</td>
 				</tr>		
 			
 			<tr>
-				<td style="width: 481px; height: 23px;">
+				<td style="width: 342px; height: 23px;">
 				<table style="width: 83%">
 					<tr>
 						<td style="width: 255px">&nbsp;</td>

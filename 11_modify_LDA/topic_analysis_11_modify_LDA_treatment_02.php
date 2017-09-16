@@ -61,7 +61,6 @@
 											for($zaehler2=0;$zaehler2<$zaehler;$zaehler2++){											
 												$returndbselect=dbselect($returndbconnect,"search_results", "id_search_strings='$searchstringsids[$zaehler2]' AND exclude=0 AND ((preprocessing_abstracttext_already_done=0 AND preprocessing_pdffulltext_already_done=1) OR (preprocessing_abstracttext_already_done=1 AND preprocessing_pdffulltext_already_done=0) OR (preprocessing_abstracttext_already_done=1 AND preprocessing_pdffulltext_already_done=1))","id");			
 												$dbnumrowsvar2=dbnumrows($returndbselect);
-												echo $dbnumrowsvar2;
 												if($dbnumrowsvar2==0){
 													echo 'No search results found for search string ' . $searchstringsnames[$zaehler2] . ' You should preprocess <a href="../topic_analysis_07_a_preprocessing_abstracts.php">abstracts</a> and <a href="../topic_analysis_07_b_preprocessing_pdffulltexts.php">pdffulltexts</a> first.</br>';
 													$searchstringhasnosearchresults=true;
