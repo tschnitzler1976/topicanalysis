@@ -111,7 +111,23 @@ include_once("mysql_db_functions.php");
 		}			
 		exec($wgetstring);
 	}
+	
+	function execwgettempdir($searchstringforresult,$onefile,$dirname){
+		chdir($dirname);
+		$fp = fopen("wgetinput.txt", "w");
+		fputs ($fp, "$searchstringforresult");
+		fclose ($fp);
+		//run wget:
+		$pathwget=pathtowget();
+		if($onefile){
+			$wgetstring=$pathwget . " -i " . $dirname . "wgetinput.txt -O output.txt --no-check-certificate --wait 2";
+		}else{
+			$wgetstring=$pathwget . " -i " . $dirname . "wgetinput.txt --no-check-certificate --wait 2";
+		}			
+		exec($wgetstring);
+	}
 
+	
 	function pdftotext_executable(){
 		$pathtoapp='C:/xampp/htdocs/topic_analysis/';
 		$returnvalue=$pathtoapp . '04_fill_and_complete/tools/pdftotext.exe';

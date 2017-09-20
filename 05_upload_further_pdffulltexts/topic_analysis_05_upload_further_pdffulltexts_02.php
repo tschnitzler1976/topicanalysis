@@ -66,10 +66,9 @@
 				}
 				
 				$dirname=pathtopdffulltextsalltemp($topicanalysisname);
-				if(is_dir($dirname)==false){
+					if(is_dir($dirname)==false){
 					mkdir($dirname);
 				}
-
 								
 				//Download each pdffile from any submitted http-fullpath with the help of wget. Save the new information in
 				//table search_results 
@@ -103,7 +102,7 @@
 					$outputstring=$outputstring . '<tr><td>No upload because no textfield contained a http-fulltextlink.</td><td>&nbsp;</td></tr>';
 				}elseif($zaehler3>0){
 					//We download with wget.exe
-					execwget($publicfullpathwget,false,$dirname);
+					execwgettempdir($publicfullpathwget,false,$dirname);
 					$finfo = finfo_open(FILEINFO_MIME_TYPE); 
 					for($zaehler=0;$zaehler<$zaehler3;$zaehler++){
 						//We check whether the downloaded file is pdf. Unless it is pdf it is deleted.
@@ -136,7 +135,7 @@
 						    	}
 					    	}
 					    }else{
-					    	$outputstring=$outputstring . '<tr><td>File ' . $localfullpath[$zaehler] . ' was not downloaded. Are you connected to the internet?</td><td>&nbsp;</td></tr>';
+					    	$outputstring=$outputstring . '<tr><td>File ' . $localfullpath[$zaehler] . ' was not downloaded. Is the link to the pdffulltext correct? Are you connected to the internet?</td><td>&nbsp;</td></tr>';
 						}
 					}
 					rrmdir(pathtopdffulltextsalltemp($topicanalysisname));

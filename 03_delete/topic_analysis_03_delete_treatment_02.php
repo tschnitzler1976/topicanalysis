@@ -19,8 +19,10 @@
 		$returndbselect=dbselect($returndbconnect,"search_strings","id_topic_analysis='$topicanalysisid'","id");			
 		$returndbnumrows=dbnumrows($returndbselect);
 		if($returndbnumrows>0){
-			while(list($searchstringid) = mysqli_fetch_row($returndbselect)){
-				$returndbdelete=dbdelete($returndbconnect,"search_results","id_search_strings='$searchstringid'");			
+			$zaehler2=0;
+			while(list($id) = mysqli_fetch_row($returndbselect)){
+				$searchid[$zaehler2]=$id;
+				$returndbdelete=dbdelete($returndbconnect,"search_results","id_search_strings='$searchid[$zaehler2]'");			
 				if($returndbdelete==0){
 					echo "DELETE-Query for the table 'search_results' went wrong";
 					$returndeletequeries=0;

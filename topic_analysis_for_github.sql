@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 07. Sep 2017 um 19:02
+-- Erstellungszeit: 20. Sep 2017 um 07:35
 -- Server-Version: 10.1.21-MariaDB
 -- PHP-Version: 5.6.30
 
@@ -178,32 +178,32 @@ ALTER TABLE `topic_analysis`
 -- AUTO_INCREMENT für Tabelle `lda`
 --
 ALTER TABLE `lda`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT für Tabelle `lda_id_search_results`
 --
 ALTER TABLE `lda_id_search_results`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1165;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1057;
 --
 -- AUTO_INCREMENT für Tabelle `research_questions`
 --
 ALTER TABLE `research_questions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=156;
 --
 -- AUTO_INCREMENT für Tabelle `search_results`
 --
 ALTER TABLE `search_results`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1715;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=325;
 --
 -- AUTO_INCREMENT für Tabelle `search_strings`
 --
 ALTER TABLE `search_strings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=847;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=867;
 --
 -- AUTO_INCREMENT für Tabelle `search_strings_for_results`
 --
 ALTER TABLE `search_strings_for_results`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=392;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=439;
 --
 -- AUTO_INCREMENT für Tabelle `topic_analysis`
 --

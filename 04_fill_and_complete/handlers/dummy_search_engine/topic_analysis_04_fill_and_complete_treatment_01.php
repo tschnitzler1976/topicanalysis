@@ -59,23 +59,24 @@
 				$zaehlertreatmentparameterwrong=0;
 				while(list($id,$id_topic_analysis,$name) = mysqli_fetch_row($returndbselect3)){
 					//ids for the computation of the extraction output (if the search strings have the search results in their column "htmlsource" in table "search_strings")
-					$searchstringsids[$zaehler]=htmlstringtostring($id);				
+					$searchstringsids[$zaehler]=$id;				
 					//name in order to find out in what function we have to treat the details that come from this search engine
 					$searchstringnames[$zaehler]=htmlstringtostring($name);				
 					//searchstringsids for the next form after this form is submitted
 					//for wget's input file
 					$searchstringsforwgetinputfile=$searchstringsforwgetinputfile . $name;
 					$zaehler++;
-				}
-				
-				for($zaehler=0;$zaehler<sizeof($searchstringsids);$zaehler++){
-					$searchstringid=$searchstringsids[$zaehler];
 					/*DELETE any former search result to this search string because we will update this search string with its search results now.
 					  If no handler will be found below then there are no search results for this topic analysis until a valid handler is provided.*/
-					$returndbdelete=dbdelete($returndbconnect,"search_results","id_search_strings='$searchstringid'");
+					$returndbdelete=dbdelete($returndbconnect,"search_results","id_search_strings='$searchstringsids[$zaehler]'");
 					if($returndbdelete==0){
 						echo "DELETE-Query for deleting the search results in table search_results for the search string-id= " . $searchstringid . " went wrong. </br>";
 					}		
+
+					
+				}
+				
+				for($zaehler=0;$zaehler<sizeof($searchstringsids);$zaehler++){
 				}
 
 				$dirname=pathtosearchresultone($topicanalysisname);
