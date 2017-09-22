@@ -132,8 +132,8 @@
 					</tr>
 					<tr>
 						<td style="width: 453px">
-						Next enter how much topics LDA should 
-									be create. The sum of LDA-topics forms the 
+						Next enter how much topics should be created with the help of LDA. The
+									sum of LDA-topics forms the 
 									classification scheme (see slide 26 of the
 									<a href="../00_general/sms.pdf">systematic mapping study 
 									slides</a>).</td>
