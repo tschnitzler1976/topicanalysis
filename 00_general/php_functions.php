@@ -461,6 +461,7 @@ include_once("mysql_db_functions.php");
 		$outputfolder=pathtolda() . $topicanalysisname . '/' . $ldaname . '/' . 'output/vis/';
 		$executefolder=pathtolda() . $topicanalysisname . '/' . $ldaname . '/' . 'execute/';
 		$stringtowriteintofile='';
+		$rfile00= '#This program is created with the help of code snippets from "https://gist.github.com/not-for-me/f0e269015e5681ec56ab" and Carson Sievert, "A topic model for movie reviews" at https://ldavis.cpsievert.me/reviews/reviews.html at 2017-09-30' . chr(13) . chr(10);
 		$rfile01='library(tm) ' . chr(13) . chr(10) . 'stop_words <- stopwords("SMART")' . chr(13) . chr(10);
 		$rfile02='path<-"' . $inputfolder . '"' . chr(13) . chr(10);
 		$rfile03=file_get_contents(pathtolda() . 'rfile_sourcecode/rfile03.R_part');
@@ -469,7 +470,7 @@ include_once("mysql_db_functions.php");
 		$rfile06='fit <- lda.collapsed.gibbs.sampler(documents = documents, K =' . $numberoftopics . ', vocab = vocab,' . chr(13) . chr(10);
 		$rfile07=file_get_contents(pathtolda() . 'rfile_sourcecode/rfile07.R_part');
 		$rfile08='serVis(json, out.dir = "' . $outputfolder . '", open.browser = FALSE)';
-		$stringtowriteintofile=$rfile01 . $rfile02 . $rfile03 .$rfile04 . $rfile05 . $rfile06 . $rfile07 . $rfile08;
+		$stringtowriteintofile=$rfile00 . $rfile01 . $rfile02 . $rfile03 .$rfile04 . $rfile05 . $rfile06 . $rfile07 . $rfile08;
 		file_put_contents($executefolder . 'lda.R',$stringtowriteintofile);
 	}	
 ?>

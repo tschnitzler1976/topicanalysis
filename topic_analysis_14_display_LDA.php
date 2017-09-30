@@ -25,7 +25,7 @@
 <body>
 <form method="post" action="14_output_LDA/topic_analysis_14_output_LDA.php">
 	<table style="width: 100%">
-		<tr><td style="width: 640px">LDA execution for an existing topic 
+		<tr><td style="width: 640px">Output of a LDA execution for an existing topic 
 			analysis</td>
 			<td><a href="topic_analysis_00_menu.php">Go back to the menu</a></td>
 		</tr>

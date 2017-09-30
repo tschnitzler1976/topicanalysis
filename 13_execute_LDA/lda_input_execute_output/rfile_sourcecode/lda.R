@@ -1,3 +1,6 @@
+#This program is created with the help of code snippets from
+#"https://gist.github.com/not-for-me/f0e269015e5681ec56ab"
+#and Carson Sievert, "A topic model for movie reviews" at https://ldavis.cpsievert.me/reviews/reviews.html at 2017-09-30
 library(tm)
 stop_words <- stopwords("SMART")
 path<-"C:/Users/thomas/Desktop/corpus/"

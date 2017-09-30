@@ -93,7 +93,7 @@
 					
 				$outputtouser=$outputtouser . '<tr><td>' . $consideredconferenceoutput . '.</td><td></td></tr>';
 				$outputtouser=$outputtouser . '<tr><td>' . $yearfromtoselectedoutput . '.</td><td>&nbsp;</td></tr>';
-				$outputtouser=$outputtouser . '<tr><td>LDA-output with the help of <a href="http://kennyshirley.com/LDAvis/">LDAvis</a> as follows:</td><td>&nbsp;</td></tr>';
+				$outputtouser=$outputtouser . '<tr><td>LDA-output with the help of <a href="http://kennyshirley.com/LDAvis/">LDAvis</a> is as follows:</td><td>&nbsp;</td></tr>';
 				
 				//Show the details of any scientific article that affected the displayed LDAvis-Output above
 				$inputdir=$inputexecuteoutputdir . 'input/';

@@ -26,32 +26,28 @@
 <body>
 <form method="post" action="13_execute_LDA/topic_analysis_13_execute_LDA.php">
 	<table style="width: 100%">
-		<tr><td style="width: 640px">LDA execution for an existing topic 
+		<tr><td style="width: 695px">LDA execution for an existing topic 
 			analysis</td>
 			<td><a href="topic_analysis_00_menu.php">Go back to the menu</a></td>
 		</tr>
-		<tr><td style="width: 640px">&nbsp;</td>
+		<tr><td style="width: 695px">&nbsp;</td>
 			<td>&nbsp;</td>
 		</tr>
-		<tr><td style="width: 640px">Did you already manually filtered anything out in the <a href="topic_analysis_08_optimize_abstracts.php">optimization form for abstracts</a> </td>
+		<tr><td style="width: 695px">It is recommended to optimize your abstracts with the help of the <a href="topic_analysis_08_optimize_abstracts.php">optimization form for abstracts</a> first.</td>
 			<td>&nbsp;</td>
 		</tr>
-		<tr><td style="width: 640px">and in the <a href="topic_analysis_09_optimize_pdffulltexts_for_lda.php">optimization form for pdffulltexts for lda</a>?</td>
+		<tr><td style="width: 695px">The same is recommended for pdffulltexts with the help of the <a href="topic_analysis_09_optimize_pdffulltexts_for_lda.php">optimization form for pdffulltexts for lda</a>.</td>
 			<td>&nbsp;</td>
 		</tr>
 
-		<tr><td style="width: 640px">If no please follow the links to 
-			optimization forms above first. Otherwise continue below.</td><td>&nbsp;</td>
+		<tr><td style="width: 695px">&nbsp;</td><td>&nbsp;</td>
 		</tr>
 
-		<tr><td style="width: 640px">&nbsp;</td><td>&nbsp;</td>
-		</tr>
-
-		<tr><td style="width: 640px">Select an existing topic analysis for an lda to execute:</td><td>
+		<tr><td style="width: 695px">Select an existing topic analysis for an lda to execute:</td><td>
 			&nbsp;</td>
 		</tr>
 		<tr>
-			<td>
+			<td style="width: 695px">
 			<select name="select_existing_topic_analysis" style="width: 402px" tabindex="1">
 			';
 			while(list($id,$name) = mysqli_fetch_row($returndbselect)){
@@ -61,7 +57,7 @@
 			<td>&nbsp;</td>
 		</tr>
 		<tr>
-			<td style="height: 23px;">
+			<td style="height: 23px; width: 695px;">
 			<table style="width: 136%">
 				
 			<tr><td style="height: 23px; width: 640px;">
