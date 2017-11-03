@@ -68,7 +68,7 @@
 					$zaehler++;
 					/*DELETE any former search result to this search string because we will update this search string with its search results now.
 					  If no handler will be found below then there are no search results for this topic analysis until a valid handler is provided.*/
-					$returndbdelete=dbdelete($returndbconnect,"search_results","id_search_strings='$searchstringsids[$zaehler]'");
+					$returndbdelete=dbdelete($returndbconnect,"search_results","id_search_strings='$id'");
 					if($returndbdelete==0){
 						echo "DELETE-Query for deleting the search results in table search_results for the search string-id= " . $searchstringid . " went wrong. </br>";
 					}		
